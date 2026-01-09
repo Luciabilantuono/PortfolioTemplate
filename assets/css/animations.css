@@ -1,0 +1,204 @@
+/* Keyframe Animations */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes scrollIndicator {
+    0% {
+        transform: scaleY(0);
+    }
+    50% {
+        transform: scaleY(1);
+    }
+    100% {
+        transform: scaleY(0) translateY(40px);
+    }
+}
+
+/* Hero Animations */
+.hero__title-line {
+    animation: fadeInUp var(--transition-smooth) ease-out forwards;
+}
+
+.hero__title-line:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.hero__title-line:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.hero__title-line:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.hero__subtitle {
+    animation: fadeIn var(--transition-smooth) ease-out 0.8s forwards;
+}
+
+.hero__accent {
+    animation: scaleIn var(--transition-smooth) ease-out 1s forwards;
+}
+
+.hero__scroll {
+    animation: fadeIn var(--transition-smooth) ease-out 1.2s forwards;
+}
+
+.hero__scroll-indicator {
+    animation: scrollIndicator 2s ease-in-out infinite;
+    animation-delay: 1.5s;
+}
+
+/* Project Card Animations - Stagger Effect */
+.project-card.visible {
+    animation: fadeInUp var(--transition-smooth) ease-out forwards;
+}
+
+.project-card:nth-child(1) { animation-delay: 0.1s; }
+.project-card:nth-child(2) { animation-delay: 0.2s; }
+.project-card:nth-child(3) { animation-delay: 0.3s; }
+.project-card:nth-child(4) { animation-delay: 0.4s; }
+.project-card:nth-child(5) { animation-delay: 0.5s; }
+.project-card:nth-child(6) { animation-delay: 0.6s; }
+.project-card:nth-child(7) { animation-delay: 0.7s; }
+.project-card:nth-child(8) { animation-delay: 0.8s; }
+
+/* Scroll-driven Animations (Modern CSS) */
+@supports (animation-timeline: scroll()) {
+    .parallax-layer {
+        animation: parallax-scroll linear;
+        animation-timeline: scroll();
+    }
+    
+    @keyframes parallax-scroll {
+        from {
+            transform: translateY(0);
+        }
+        to {
+            transform: translateY(-100px);
+        }
+    }
+}
+
+/* Micro-interactions */
+.nav__link,
+.contact__link,
+.footer__link {
+    position: relative;
+}
+
+.nav__link::before,
+.contact__link::before,
+.footer__link::before {
+    content: '';
+    position: absolute;
+    inset: -8px;
+    border: 1px solid transparent;
+    transition: border-color var(--transition-fast);
+    pointer-events: none;
+}
+
+.nav__link:hover::before,
+.contact__link:hover::before,
+.footer__link:hover::before {
+    border-color: var(--color-accent);
+}
+
+/* Button Hover Effect */
+.contact__link:active {
+    transform: scale(0.98);
+}
+
+/* Image Parallax Effect */
+.project-card__image-container::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 0%, rgba(10, 10, 10, 0.1) 100%);
+    opacity: 0;
+    transition: opacity var(--transition-base);
+    pointer-events: none;
+}
+
+.project-card:hover .project-card__image-container::before {
+    opacity: 1;
+}
+
+/* Loading Animation */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.loading {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .hero__scroll-indicator {
+        animation: none;
+    }
+}
