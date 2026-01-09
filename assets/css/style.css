@@ -4,6 +4,10 @@
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: #ffffff;
   color: #000000;
@@ -36,7 +40,7 @@ a {
   right: 3rem;
   display: flex;
   gap: 2rem;
-  z-index: 3;
+  z-index: 10;
   font-size: 0.85rem;
 }
 
@@ -59,12 +63,7 @@ a {
   text-align: right;
 }
 
-.hero-meta {
-  font-size: 0.8rem;
-  letter-spacing: 0.15em;
-}
-
-.hero-title-block span {
+.hero-text span {
   display: block;
   font-size: 0.85rem;
   letter-spacing: 0.15em;
@@ -111,51 +110,63 @@ a {
 }
 
 .section-title {
-  margin-bottom: 4rem;
+  margin-bottom: 6rem;
 }
 
-.projects-track {
+.projects-stack {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6rem;
+}
+
+.project-item {
+  display: flex;
+  align-items: center;
   gap: 3rem;
-  overflow-x: auto;
 }
 
-.project-card {
-  width: 300px;
+.project-index {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+}
+
+.flip-card {
+  width: 420px;
   height: 420px;
-  perspective: 1000px;
+  perspective: 1200px;
 }
 
-.card-inner {
+.flip-inner {
   width: 100%;
   height: 100%;
   position: relative;
   transform-style: preserve-3d;
-  transition: transform 0.8s ease;
+  transition: transform 0.9s ease;
 }
 
-.project-card:hover .card-inner {
+.flip-card:hover .flip-inner {
   transform: rotateY(180deg);
 }
 
-.card-front,
-.card-back {
+.flip-front,
+.flip-back {
   position: absolute;
   inset: 0;
   backface-visibility: hidden;
 }
 
-.card-front img {
+.flip-front img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.card-back {
-  background: #ffffff;
-  border: 1px solid #000;
+.flip-back {
+  background: #000000;
+  color: #ffffff;
   transform: rotateY(180deg);
-  padding: 2rem;
+  padding: 3rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -209,8 +220,4 @@ a {
   justify-content: space-between;
   margin-top: 3rem;
   font-size: 0.75rem;
-}
-
-html {
-  scroll-behavior: smooth;
 }

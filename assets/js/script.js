@@ -18,16 +18,3 @@ heroImg.addEventListener("mouseleave", () => {
     heroImg.style.opacity = "1";
   }, 600);
 });
-
-/* ABOUT AUTO SCROLL */
-let offset = 0;
-const track = document.querySelector(".about-track");
-
-function scrollAbout() {
-  offset -= 0.25;
-  track.style.transform = `translateX(${offset}px)`;
-  if (Math.abs(offset) > track.scrollWidth / 2) offset = 0;
-  requestAnimationFrame(scrollAbout);
-}
-
-scrollAbout();
