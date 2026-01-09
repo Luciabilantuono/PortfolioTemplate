@@ -1,22 +1,33 @@
-const heroImg = document.getElementById("heroImg");
+/* HERO IMAGE HOVER */
+const heroImg = document.querySelector(".hero-image img");
+const originalSrc = heroImg.src;
+const hoverSrc = heroImg.dataset.hover;
 
-const images = [
-  "https://picsum.photos/900/600?random=1",
-  "https://picsum.photos/900/600?random=2",
-  "https://picsum.photos/900/600?random=3",
-];
-
-let current = 0;
-
-window.addEventListener("mousemove", () => {
-  current = (current + 1) % images.length;
-  heroImg.src = images[current];
+heroImg.addEventListener("mouseenter", () => {
+  heroImg.style.opacity = "0";
+  setTimeout(() => {
+    heroImg.src = hoverSrc;
+    heroImg.style.opacity = "1";
+  }, 600);
 });
 
-// ABOUT carousel auto scroll
-gsap.to(".about-track", {
-  x: "-50%",
-  duration: 20,
-  repeat: -1,
-  ease: "linear",
+heroImg.addEventListener("mouseleave", () => {
+  heroImg.style.opacity = "0";
+  setTimeout(() => {
+    heroImg.src = originalSrc;
+    heroImg.style.opacity = "1";
+  }, 600);
 });
+
+/* ABOUT AUTO SCROLL */
+let offset = 0;
+const track = document.querySelector(".about-track");
+
+function scrollAbout() {
+  offset -= 0.25;
+  track.style.transform = `translateX(${offset}px)`;
+  if (Math.abs(offset) > track.scrollWidth / 2) offset = 0;
+  requestAnimationFrame(scrollAbout);
+}
+
+scrollAbout();

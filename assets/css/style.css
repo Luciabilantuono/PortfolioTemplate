@@ -1,70 +1,83 @@
-:root {
-  --black: #000;
-  --white: #fff;
-}
-
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  margin: 0;
-  background: #fff;
-  color: #000;
+  background: #ffffff;
+  color: #000000;
   font-family: "Google Sans Code", monospace;
 }
 
-/* HEADINGS */
 h1,
 h2,
-h3 {
+h3,
+strong {
   font-family: "Cal Sans", "Helvetica Neue", sans-serif;
   font-weight: 600;
 }
 
-/* LINKS */
 a {
   color: inherit;
   text-decoration: none;
 }
 
-/* HERO */
+/* ================= HERO ================= */
 .hero {
   position: relative;
   height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  overflow: hidden;
 }
 
-.hero h1 {
-  position: relative;
-  z-index: 2;
-  font-size: clamp(3rem, 8vw, 6rem);
-  text-align: center;
-  line-height: 1;
+.top-menu {
+  position: absolute;
+  top: 2rem;
+  right: 3rem;
+  display: flex;
+  gap: 2rem;
+  z-index: 3;
+  font-size: 0.85rem;
 }
 
 .hero-image {
   position: absolute;
   inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .hero-image img {
-  width: 60%;
-  opacity: 0.4;
-  transition: opacity 0.3s ease;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 1.2s ease;
 }
 
-/* ABOUT */
-.about-section {
+.hero-text {
+  position: absolute;
+  bottom: 3rem;
+  right: 3rem;
+  text-align: right;
+}
+
+.hero-meta {
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+}
+
+.hero-title-block span {
+  display: block;
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+}
+
+/* ================= ABOUT ================= */
+.about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   padding: 8rem 3rem;
 }
 
-.about-carousel {
+.about-left {
   overflow: hidden;
 }
 
@@ -74,21 +87,26 @@ a {
 }
 
 .about-track img {
-  width: 300px;
-  height: auto;
+  width: 260px;
 }
 
-.about-text h2 {
-  margin-bottom: 2rem;
+.about-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-text {
+  max-width: 420px;
 }
 
 .about-text p {
+  font-size: 0.85rem;
   text-align: justify;
-  max-width: 500px;
 }
 
-/* PROJECTS */
-.projects-section {
+/* ================= PROJECTS ================= */
+.projects {
   padding: 8rem 3rem;
 }
 
@@ -96,7 +114,7 @@ a {
   margin-bottom: 4rem;
 }
 
-.projects-carousel {
+.projects-track {
   display: flex;
   gap: 3rem;
   overflow-x: auto;
@@ -113,7 +131,7 @@ a {
   height: 100%;
   position: relative;
   transform-style: preserve-3d;
-  transition: transform 0.8s;
+  transition: transform 0.8s ease;
 }
 
 .project-card:hover .card-inner {
@@ -134,7 +152,7 @@ a {
 }
 
 .card-back {
-  background: #fff;
+  background: #ffffff;
   border: 1px solid #000;
   transform: rotateY(180deg);
   padding: 2rem;
@@ -143,16 +161,52 @@ a {
   justify-content: center;
 }
 
-/* FOOTER */
+/* ================= FOOTER ================= */
 .footer {
   background: #000;
   color: #fff;
-  padding: 2rem 3rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  padding: 4rem 3rem 2rem;
 }
 
-.footer-links a {
-  margin-left: 2rem;
+.footer-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr;
+  gap: 4rem;
+}
+
+.footer-columns a {
+  display: block;
+  margin-top: 0.5rem;
+}
+
+.footer-newsletter p {
+  font-size: 0.8rem;
+  margin: 1rem 0;
+}
+
+.footer-newsletter form {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer-newsletter input {
+  background: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 0.5rem;
+}
+
+.footer-newsletter button {
+  background: #fff;
+  color: #000;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3rem;
+  font-size: 0.75rem;
 }
