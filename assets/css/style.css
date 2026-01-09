@@ -9,8 +9,8 @@ html {
 }
 
 body {
-  background: #ffffff;
-  color: #000000;
+  background: #fff;
+  color: #000;
   font-family: "Google Sans Code", monospace;
 }
 
@@ -36,17 +36,12 @@ a {
 
 .top-menu {
   position: absolute;
-  top: 2rem;
-  right: 3rem;
+  top: 1.5rem;
+  right: 2rem;
   display: flex;
-  gap: 2rem;
+  gap: 1.5rem;
   z-index: 10;
-  font-size: 0.85rem;
-}
-
-.hero-image {
-  position: absolute;
-  inset: 0;
+  font-size: 0.8rem;
 }
 
 .hero-image img {
@@ -58,14 +53,14 @@ a {
 
 .hero-text {
   position: absolute;
-  bottom: 3rem;
-  right: 3rem;
+  bottom: 2rem;
+  right: 2rem;
   text-align: right;
 }
 
 .hero-text span {
   display: block;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   letter-spacing: 0.15em;
 }
 
@@ -73,7 +68,8 @@ a {
 .about {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  padding: 8rem 3rem;
+  padding: 6rem 2rem;
+  gap: 3rem;
 }
 
 .about-left {
@@ -83,10 +79,12 @@ a {
 .about-track {
   display: flex;
   gap: 2rem;
+  will-change: transform;
 }
 
 .about-track img {
-  width: 260px;
+  width: 220px;
+  flex-shrink: 0;
 }
 
 .about-right {
@@ -96,7 +94,7 @@ a {
 }
 
 .about-text {
-  max-width: 420px;
+  max-width: 400px;
 }
 
 .about-text p {
@@ -106,34 +104,30 @@ a {
 
 /* ================= PROJECTS ================= */
 .projects {
-  padding: 8rem 3rem;
+  padding: 6rem 2rem;
 }
 
 .section-title {
-  margin-bottom: 6rem;
+  margin-bottom: 4rem;
 }
 
 .projects-stack {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6rem;
+  gap: 4rem;
 }
 
 .project-item {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 3rem;
-}
-
-.project-index {
-  font-size: 0.75rem;
-  letter-spacing: 0.15em;
+  gap: 1rem;
 }
 
 .flip-card {
-  width: 420px;
-  height: 420px;
+  width: 300px;
+  height: 300px;
   perspective: 1200px;
 }
 
@@ -142,10 +136,11 @@ a {
   height: 100%;
   position: relative;
   transform-style: preserve-3d;
-  transition: transform 0.9s ease;
+  transition: transform 0.8s ease;
 }
 
-.flip-card:hover .flip-inner {
+.flip-card:hover .flip-inner,
+.flip-card:active .flip-inner {
   transform: rotateY(180deg);
 }
 
@@ -163,61 +158,49 @@ a {
 }
 
 .flip-back {
-  background: #000000;
-  color: #ffffff;
+  background: #000;
+  color: #fff;
   transform: rotateY(180deg);
-  padding: 3rem;
+  padding: 1.5rem;
   display: flex;
-  flex-direction: column;
   justify-content: center;
+  flex-direction: column;
 }
 
 /* ================= FOOTER ================= */
 .footer {
   background: #000;
   color: #fff;
-  padding: 4rem 3rem 2rem;
+  padding: 3rem 2rem 2rem;
 }
 
 .footer-columns {
-  display: grid;
-  grid-template-columns: 1fr 1fr 2fr;
-  gap: 4rem;
-}
-
-.footer-columns a {
-  display: block;
-  margin-top: 0.5rem;
-}
-
-.footer-newsletter p {
-  font-size: 0.8rem;
-  margin: 1rem 0;
-}
-
-.footer-newsletter form {
   display: flex;
-  gap: 1rem;
-}
-
-.footer-newsletter input {
-  background: transparent;
-  border: 1px solid #fff;
-  color: #fff;
-  padding: 0.5rem;
-}
-
-.footer-newsletter button {
-  background: #fff;
-  color: #000;
-  border: none;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
+  flex-direction: column;
+  gap: 2.5rem;
 }
 
 .footer-bottom {
   display: flex;
-  justify-content: space-between;
-  margin-top: 3rem;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 2rem;
   font-size: 0.75rem;
+}
+
+/* ================= MEDIA QUERIES ================= */
+@media (min-width: 768px) {
+  .about {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr;
+  }
+
+  .flip-card {
+    width: 420px;
+    height: 420px;
+  }
 }

@@ -1,0 +1,59 @@
+# Project metadata - fill this out by Week 4
+# This file will be used to generate your entry in the course showroom
+
+# Basic information
+handle: luciabilantuono
+name: Lucia Isabel Bilantuono Gonzalez
+email: luciaisabel.bilantuono@udit.es  # replace with your academic email if required
+
+# URLs (will be auto-generated if you follow naming conventions)
+github_url: https://github.com/Luciabilantuono
+project_url: https://luciabilantuono.github.io/PortfolioTemplate/
+repository_url: https://github.com/Luciabilantuono/PortfolioTemplate.git
+
+# Project details
+title:
+  es: Plantilla de Portfolio de Diseño Gráfico
+  en: Graphic Design Portfolio Template
+
+abstract:
+  es: |
+    Este proyecto consiste en el desarrollo de una plantilla de portfolio web
+    reutilizable para diseñadores gráficos. El objetivo es crear una base sólida,
+    estructurada y adaptable que combine diseño editorial con buenas prácticas
+    de desarrollo web, priorizando la jerarquía visual, la accesibilidad y la
+    mantenibilidad del código.
+  en: |
+    This project focuses on the development of a reusable graphic design
+    portfolio template. Rather than a one-off website, it provides a structured
+    and adaptable foundation that combines editorial design principles with
+    modern web standards, emphasizing visual hierarchy, accessibility, and
+    long-term maintainability.
+
+# Technical tags (choose relevant ones)
+tags:
+  - html5
+  - css3
+  - javascript
+  - responsive-design
+  - accessibility
+  - editorial-layout
+  - interaction-design
+
+# Learning objectives you're focusing on
+learning_focus:
+  - semantic-html
+  - mobile-first-design
+  - web-accessibility
+  - css-layout-systems
+  - interactive-design
+
+# Week tracking (update as you go)
+milestones:
+  week_1_setup: true
+  week_2_brief: true
+  week_4_metadata: true
+  week_5_showcase: false
+
+# Optional: link to your project brief
+brief_url: project-brief.md
